@@ -2,9 +2,9 @@
 
 
 ## Autor  
-**Nome:** Tomás Araújo Santos 
-**Número:** 104005  
-![Foto do Autor](extra/foto.jpeg)
+- **Nome:** Tomás Araújo Santos 
+- **Número:** 104005  
+- ![Foto do Autor](extra/foto.jpeg)
 
 
 ## Resumo  
