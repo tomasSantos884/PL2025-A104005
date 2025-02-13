@@ -10,7 +10,7 @@ Somador On/Off em Python
 ## Autor  
 **Nome:** Tomás Araújo Santos 
 **Número:** 104005
-![Foto do Autor](extra/foto.jpeg)
+![Foto do Autor](../extra/foto.jpeg)
 
 ## Resumo
 - Implementação de um programa que soma números encontrados num texto, ativando e desativando a soma conforme as palavras "On" e "Off".
@@ -19,4 +19,4 @@ Somador On/Off em Python
 - Exibe o resultado da soma ao encontrar o caractere "=".
 
 ## Lista de Resultados
-- [Código-fonte](TPC1/somaOnOff.py)
+- [Código-fonte](somaOnOff.py)
