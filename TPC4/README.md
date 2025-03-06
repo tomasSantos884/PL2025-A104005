@@ -1,7 +1,7 @@
 # PL2025-A104005 - TPC4
 
 ## Título
-Analisador Léxico para Consultas SPARQL
+Analisador Léxico
 
 ## Data
 6 de Março de 2025
@@ -13,7 +13,7 @@ Analisador Léxico para Consultas SPARQL
 
 ## Resumo (`lexer.py`)
 
-- Implementa um analisador léxico para consultas SPARQL usando a biblioteca PLY (Python Lex-Yacc).
+- Implementa um analisador léxico usando a biblioteca PLY (Python Lex-Yacc).
 - Define os seguintes tokens:
   - `SELECT` → Corresponde à palavra-chave `select`
   - `WHERE` → Corresponde à palavra-chave `where`
