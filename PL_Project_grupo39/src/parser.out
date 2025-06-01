@@ -1,0 +1,2810 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMMENT
+
+Grammar
+
+Rule 0     S' -> Program
+Rule 1     Program -> Header SEMICOLON Block DOT
+Rule 2     Header -> PROGRAM IDENTIFIER
+Rule 3     Block -> Var_declaration_block Code_block
+Rule 4     Var_declaration_block -> VAR Var_list
+Rule 5     Var_declaration_block -> <empty>
+Rule 6     Var_list -> Var_declaration Var_list
+Rule 7     Var_list -> Var_declaration
+Rule 8     Var_declaration -> Identifier_list COLON Type SEMICOLON
+Rule 9     Identifier_list -> IDENTIFIER COMMA Identifier_list
+Rule 10    Identifier_list -> IDENTIFIER
+Rule 11    Type -> TINTEGER
+Rule 12    Type -> TREAL
+Rule 13    Type -> TSTRING
+Rule 14    Type -> TCHAR
+Rule 15    Type -> TBOOLEAN
+Rule 16    Type -> Array_type
+Rule 17    Array_type -> ARRAY LBRACKET integer DOTDOT integer RBRACKET OF Type
+Rule 18    Code_block -> BEGIN Statements END
+Rule 19    Statements -> Statement SEMICOLON Statements
+Rule 20    Statements -> Statement
+Rule 21    Statement -> Assignment_statement
+Rule 22    Statement -> Code_block
+Rule 23    Statement -> If_statement
+Rule 24    Statement -> While_statement
+Rule 25    Statement -> For_statement
+Rule 26    Statement -> Write_statement
+Rule 27    Statement -> Readln_statement
+Rule 28    Statement -> <empty>
+Rule 29    If_statement -> IF Expression THEN Statement ELSE Statement
+Rule 30    If_statement -> IF Expression THEN Statement
+Rule 31    While_statement -> WHILE Expression DO Statement
+Rule 32    For_statement -> FOR Assignment_statement TO Expression DO Statement
+Rule 33    For_statement -> FOR Assignment_statement DOWNTO Expression DO Statement
+Rule 34    Write_statement -> WRITE LPAREN Param_list RPAREN
+Rule 35    Write_statement -> WRITELN LPAREN Param_list RPAREN
+Rule 36    Param_list -> Param_list COMMA Param
+Rule 37    Param_list -> Param
+Rule 38    Param -> Expression
+Rule 39    Readln_statement -> READLN LPAREN IDENTIFIER RPAREN
+Rule 40    Readln_statement -> READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN
+Rule 41    Assignment_statement -> IDENTIFIER ASSIGNMENT Expression
+Rule 42    Assignment_statement -> IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression
+Rule 43    Expression -> Expression And_or Expression_m
+Rule 44    Expression -> Expression_m
+Rule 45    Expression_m -> Expression_s
+Rule 46    Expression_m -> Expression_m Sign Expression_s
+Rule 47    Expression_s -> Element
+Rule 48    Expression_s -> Expression_s Psign Element
+Rule 49    And_or -> AND
+Rule 50    And_or -> OR
+Rule 51    Psign -> TIMES
+Rule 52    Psign -> DIVISION
+Rule 53    Sign -> PLUS
+Rule 54    Sign -> MINUS
+Rule 55    Sign -> DIV
+Rule 56    Sign -> MOD
+Rule 57    Sign -> EQ
+Rule 58    Sign -> NEQ
+Rule 59    Sign -> LT
+Rule 60    Sign -> LTE
+Rule 61    Sign -> GT
+Rule 62    Sign -> GTE
+Rule 63    Element -> IDENTIFIER
+Rule 64    Element -> IDENTIFIER LBRACKET Expression RBRACKET
+Rule 65    Element -> real
+Rule 66    Element -> integer
+Rule 67    Element -> string
+Rule 68    Element -> char
+Rule 69    Element -> boolean
+Rule 70    Element -> LPAREN Expression RPAREN
+Rule 71    Element -> NOT Element
+Rule 72    real -> REAL
+Rule 73    integer -> INTEGER
+Rule 74    string -> STRING
+Rule 75    char -> CHAR
+Rule 76    boolean -> BOOLEAN
+
+Terminals, with rules where they appear
+
+AND                  : 49
+ARRAY                : 17
+ASSIGNMENT           : 41 42
+BEGIN                : 18
+BOOLEAN              : 76
+CHAR                 : 75
+COLON                : 8
+COMMA                : 9 36
+COMMENT              : 
+DIV                  : 55
+DIVISION             : 52
+DO                   : 31 32 33
+DOT                  : 1
+DOTDOT               : 17
+DOWNTO               : 33
+ELSE                 : 29
+END                  : 18
+EQ                   : 57
+FOR                  : 32 33
+GT                   : 61
+GTE                  : 62
+IDENTIFIER           : 2 9 10 39 40 41 42 63 64
+IF                   : 29 30
+INTEGER              : 73
+LBRACKET             : 17 40 42 64
+LPAREN               : 34 35 39 40 70
+LT                   : 59
+LTE                  : 60
+MINUS                : 54
+MOD                  : 56
+NEQ                  : 58
+NOT                  : 71
+OF                   : 17
+OR                   : 50
+PLUS                 : 53
+PROGRAM              : 2
+RBRACKET             : 17 40 42 64
+READLN               : 39 40
+REAL                 : 72
+RPAREN               : 34 35 39 40 70
+SEMICOLON            : 1 8 19
+STRING               : 74
+TBOOLEAN             : 15
+TCHAR                : 14
+THEN                 : 29 30
+TIMES                : 51
+TINTEGER             : 11
+TO                   : 32
+TREAL                : 12
+TSTRING              : 13
+VAR                  : 4
+WHILE                : 31
+WRITE                : 34
+WRITELN              : 35
+error                : 
+
+Nonterminals, with rules where they appear
+
+And_or               : 43
+Array_type           : 16
+Assignment_statement : 21 32 33
+Block                : 1
+Code_block           : 3 22
+Element              : 47 48 71
+Expression           : 29 30 31 32 33 38 40 41 42 42 43 64 70
+Expression_m         : 43 44 46
+Expression_s         : 45 46 48
+For_statement        : 25
+Header               : 1
+Identifier_list      : 8 9
+If_statement         : 23
+Param                : 36 37
+Param_list           : 34 35 36
+Program              : 0
+Psign                : 48
+Readln_statement     : 27
+Sign                 : 46
+Statement            : 19 20 29 29 30 31 32 33
+Statements           : 18 19
+Type                 : 8 17
+Var_declaration      : 6 7
+Var_declaration_block : 3
+Var_list             : 4 6
+While_statement      : 24
+Write_statement      : 26
+boolean              : 69
+char                 : 68
+integer              : 17 17 66
+real                 : 65
+string               : 67
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . Program
+    (1) Program -> . Header SEMICOLON Block DOT
+    (2) Header -> . PROGRAM IDENTIFIER
+
+    PROGRAM         shift and go to state 3
+
+    Program                        shift and go to state 1
+    Header                         shift and go to state 2
+
+state 1
+
+    (0) S' -> Program .
+
+
+
+state 2
+
+    (1) Program -> Header . SEMICOLON Block DOT
+
+    SEMICOLON       shift and go to state 4
+
+
+state 3
+
+    (2) Header -> PROGRAM . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 5
+
+
+state 4
+
+    (1) Program -> Header SEMICOLON . Block DOT
+    (3) Block -> . Var_declaration_block Code_block
+    (4) Var_declaration_block -> . VAR Var_list
+    (5) Var_declaration_block -> .
+
+    VAR             shift and go to state 8
+    BEGIN           reduce using rule 5 (Var_declaration_block -> .)
+
+    Block                          shift and go to state 6
+    Var_declaration_block          shift and go to state 7
+
+state 5
+
+    (2) Header -> PROGRAM IDENTIFIER .
+
+    SEMICOLON       reduce using rule 2 (Header -> PROGRAM IDENTIFIER .)
+
+
+state 6
+
+    (1) Program -> Header SEMICOLON Block . DOT
+
+    DOT             shift and go to state 9
+
+
+state 7
+
+    (3) Block -> Var_declaration_block . Code_block
+    (18) Code_block -> . BEGIN Statements END
+
+    BEGIN           shift and go to state 11
+
+    Code_block                     shift and go to state 10
+
+state 8
+
+    (4) Var_declaration_block -> VAR . Var_list
+    (6) Var_list -> . Var_declaration Var_list
+    (7) Var_list -> . Var_declaration
+    (8) Var_declaration -> . Identifier_list COLON Type SEMICOLON
+    (9) Identifier_list -> . IDENTIFIER COMMA Identifier_list
+    (10) Identifier_list -> . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 15
+
+    Var_list                       shift and go to state 12
+    Var_declaration                shift and go to state 13
+    Identifier_list                shift and go to state 14
+
+state 9
+
+    (1) Program -> Header SEMICOLON Block DOT .
+
+    $end            reduce using rule 1 (Program -> Header SEMICOLON Block DOT .)
+
+
+state 10
+
+    (3) Block -> Var_declaration_block Code_block .
+
+    DOT             reduce using rule 3 (Block -> Var_declaration_block Code_block .)
+
+
+state 11
+
+    (18) Code_block -> BEGIN . Statements END
+    (19) Statements -> . Statement SEMICOLON Statements
+    (20) Statements -> . Statement
+    (21) Statement -> . Assignment_statement
+    (22) Statement -> . Code_block
+    (23) Statement -> . If_statement
+    (24) Statement -> . While_statement
+    (25) Statement -> . For_statement
+    (26) Statement -> . Write_statement
+    (27) Statement -> . Readln_statement
+    (28) Statement -> .
+    (41) Assignment_statement -> . IDENTIFIER ASSIGNMENT Expression
+    (42) Assignment_statement -> . IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression
+    (18) Code_block -> . BEGIN Statements END
+    (29) If_statement -> . IF Expression THEN Statement ELSE Statement
+    (30) If_statement -> . IF Expression THEN Statement
+    (31) While_statement -> . WHILE Expression DO Statement
+    (32) For_statement -> . FOR Assignment_statement TO Expression DO Statement
+    (33) For_statement -> . FOR Assignment_statement DOWNTO Expression DO Statement
+    (34) Write_statement -> . WRITE LPAREN Param_list RPAREN
+    (35) Write_statement -> . WRITELN LPAREN Param_list RPAREN
+    (39) Readln_statement -> . READLN LPAREN IDENTIFIER RPAREN
+    (40) Readln_statement -> . READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN
+
+    SEMICOLON       reduce using rule 28 (Statement -> .)
+    END             reduce using rule 28 (Statement -> .)
+    IDENTIFIER      shift and go to state 25
+    BEGIN           shift and go to state 11
+    IF              shift and go to state 26
+    WHILE           shift and go to state 27
+    FOR             shift and go to state 28
+    WRITE           shift and go to state 29
+    WRITELN         shift and go to state 30
+    READLN          shift and go to state 31
+
+    Statements                     shift and go to state 16
+    Statement                      shift and go to state 17
+    Assignment_statement           shift and go to state 18
+    Code_block                     shift and go to state 19
+    If_statement                   shift and go to state 20
+    While_statement                shift and go to state 21
+    For_statement                  shift and go to state 22
+    Write_statement                shift and go to state 23
+    Readln_statement               shift and go to state 24
+
+state 12
+
+    (4) Var_declaration_block -> VAR Var_list .
+
+    BEGIN           reduce using rule 4 (Var_declaration_block -> VAR Var_list .)
+
+
+state 13
+
+    (6) Var_list -> Var_declaration . Var_list
+    (7) Var_list -> Var_declaration .
+    (6) Var_list -> . Var_declaration Var_list
+    (7) Var_list -> . Var_declaration
+    (8) Var_declaration -> . Identifier_list COLON Type SEMICOLON
+    (9) Identifier_list -> . IDENTIFIER COMMA Identifier_list
+    (10) Identifier_list -> . IDENTIFIER
+
+    BEGIN           reduce using rule 7 (Var_list -> Var_declaration .)
+    IDENTIFIER      shift and go to state 15
+
+    Var_declaration                shift and go to state 13
+    Var_list                       shift and go to state 32
+    Identifier_list                shift and go to state 14
+
+state 14
+
+    (8) Var_declaration -> Identifier_list . COLON Type SEMICOLON
+
+    COLON           shift and go to state 33
+
+
+state 15
+
+    (9) Identifier_list -> IDENTIFIER . COMMA Identifier_list
+    (10) Identifier_list -> IDENTIFIER .
+
+    COMMA           shift and go to state 34
+    COLON           reduce using rule 10 (Identifier_list -> IDENTIFIER .)
+
+
+state 16
+
+    (18) Code_block -> BEGIN Statements . END
+
+    END             shift and go to state 35
+
+
+state 17
+
+    (19) Statements -> Statement . SEMICOLON Statements
+    (20) Statements -> Statement .
+
+    SEMICOLON       shift and go to state 36
+    END             reduce using rule 20 (Statements -> Statement .)
+
+
+state 18
+
+    (21) Statement -> Assignment_statement .
+
+    SEMICOLON       reduce using rule 21 (Statement -> Assignment_statement .)
+    END             reduce using rule 21 (Statement -> Assignment_statement .)
+    ELSE            reduce using rule 21 (Statement -> Assignment_statement .)
+
+
+state 19
+
+    (22) Statement -> Code_block .
+
+    SEMICOLON       reduce using rule 22 (Statement -> Code_block .)
+    END             reduce using rule 22 (Statement -> Code_block .)
+    ELSE            reduce using rule 22 (Statement -> Code_block .)
+
+
+state 20
+
+    (23) Statement -> If_statement .
+
+    SEMICOLON       reduce using rule 23 (Statement -> If_statement .)
+    END             reduce using rule 23 (Statement -> If_statement .)
+    ELSE            reduce using rule 23 (Statement -> If_statement .)
+
+
+state 21
+
+    (24) Statement -> While_statement .
+
+    SEMICOLON       reduce using rule 24 (Statement -> While_statement .)
+    END             reduce using rule 24 (Statement -> While_statement .)
+    ELSE            reduce using rule 24 (Statement -> While_statement .)
+
+
+state 22
+
+    (25) Statement -> For_statement .
+
+    SEMICOLON       reduce using rule 25 (Statement -> For_statement .)
+    END             reduce using rule 25 (Statement -> For_statement .)
+    ELSE            reduce using rule 25 (Statement -> For_statement .)
+
+
+state 23
+
+    (26) Statement -> Write_statement .
+
+    SEMICOLON       reduce using rule 26 (Statement -> Write_statement .)
+    END             reduce using rule 26 (Statement -> Write_statement .)
+    ELSE            reduce using rule 26 (Statement -> Write_statement .)
+
+
+state 24
+
+    (27) Statement -> Readln_statement .
+
+    SEMICOLON       reduce using rule 27 (Statement -> Readln_statement .)
+    END             reduce using rule 27 (Statement -> Readln_statement .)
+    ELSE            reduce using rule 27 (Statement -> Readln_statement .)
+
+
+state 25
+
+    (41) Assignment_statement -> IDENTIFIER . ASSIGNMENT Expression
+    (42) Assignment_statement -> IDENTIFIER . LBRACKET Expression RBRACKET ASSIGNMENT Expression
+
+    ASSIGNMENT      shift and go to state 37
+    LBRACKET        shift and go to state 38
+
+
+state 26
+
+    (29) If_statement -> IF . Expression THEN Statement ELSE Statement
+    (30) If_statement -> IF . Expression THEN Statement
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression                     shift and go to state 39
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 27
+
+    (31) While_statement -> WHILE . Expression DO Statement
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression                     shift and go to state 56
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 28
+
+    (32) For_statement -> FOR . Assignment_statement TO Expression DO Statement
+    (33) For_statement -> FOR . Assignment_statement DOWNTO Expression DO Statement
+    (41) Assignment_statement -> . IDENTIFIER ASSIGNMENT Expression
+    (42) Assignment_statement -> . IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression
+
+    IDENTIFIER      shift and go to state 25
+
+    Assignment_statement           shift and go to state 57
+
+state 29
+
+    (34) Write_statement -> WRITE . LPAREN Param_list RPAREN
+
+    LPAREN          shift and go to state 58
+
+
+state 30
+
+    (35) Write_statement -> WRITELN . LPAREN Param_list RPAREN
+
+    LPAREN          shift and go to state 59
+
+
+state 31
+
+    (39) Readln_statement -> READLN . LPAREN IDENTIFIER RPAREN
+    (40) Readln_statement -> READLN . LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN
+
+    LPAREN          shift and go to state 60
+
+
+state 32
+
+    (6) Var_list -> Var_declaration Var_list .
+
+    BEGIN           reduce using rule 6 (Var_list -> Var_declaration Var_list .)
+
+
+state 33
+
+    (8) Var_declaration -> Identifier_list COLON . Type SEMICOLON
+    (11) Type -> . TINTEGER
+    (12) Type -> . TREAL
+    (13) Type -> . TSTRING
+    (14) Type -> . TCHAR
+    (15) Type -> . TBOOLEAN
+    (16) Type -> . Array_type
+    (17) Array_type -> . ARRAY LBRACKET integer DOTDOT integer RBRACKET OF Type
+
+    TINTEGER        shift and go to state 62
+    TREAL           shift and go to state 63
+    TSTRING         shift and go to state 64
+    TCHAR           shift and go to state 65
+    TBOOLEAN        shift and go to state 66
+    ARRAY           shift and go to state 68
+
+    Type                           shift and go to state 61
+    Array_type                     shift and go to state 67
+
+state 34
+
+    (9) Identifier_list -> IDENTIFIER COMMA . Identifier_list
+    (9) Identifier_list -> . IDENTIFIER COMMA Identifier_list
+    (10) Identifier_list -> . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 15
+
+    Identifier_list                shift and go to state 69
+
+state 35
+
+    (18) Code_block -> BEGIN Statements END .
+
+    DOT             reduce using rule 18 (Code_block -> BEGIN Statements END .)
+    SEMICOLON       reduce using rule 18 (Code_block -> BEGIN Statements END .)
+    END             reduce using rule 18 (Code_block -> BEGIN Statements END .)
+    ELSE            reduce using rule 18 (Code_block -> BEGIN Statements END .)
+
+
+state 36
+
+    (19) Statements -> Statement SEMICOLON . Statements
+    (19) Statements -> . Statement SEMICOLON Statements
+    (20) Statements -> . Statement
+    (21) Statement -> . Assignment_statement
+    (22) Statement -> . Code_block
+    (23) Statement -> . If_statement
+    (24) Statement -> . While_statement
+    (25) Statement -> . For_statement
+    (26) Statement -> . Write_statement
+    (27) Statement -> . Readln_statement
+    (28) Statement -> .
+    (41) Assignment_statement -> . IDENTIFIER ASSIGNMENT Expression
+    (42) Assignment_statement -> . IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression
+    (18) Code_block -> . BEGIN Statements END
+    (29) If_statement -> . IF Expression THEN Statement ELSE Statement
+    (30) If_statement -> . IF Expression THEN Statement
+    (31) While_statement -> . WHILE Expression DO Statement
+    (32) For_statement -> . FOR Assignment_statement TO Expression DO Statement
+    (33) For_statement -> . FOR Assignment_statement DOWNTO Expression DO Statement
+    (34) Write_statement -> . WRITE LPAREN Param_list RPAREN
+    (35) Write_statement -> . WRITELN LPAREN Param_list RPAREN
+    (39) Readln_statement -> . READLN LPAREN IDENTIFIER RPAREN
+    (40) Readln_statement -> . READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN
+
+    SEMICOLON       reduce using rule 28 (Statement -> .)
+    END             reduce using rule 28 (Statement -> .)
+    IDENTIFIER      shift and go to state 25
+    BEGIN           shift and go to state 11
+    IF              shift and go to state 26
+    WHILE           shift and go to state 27
+    FOR             shift and go to state 28
+    WRITE           shift and go to state 29
+    WRITELN         shift and go to state 30
+    READLN          shift and go to state 31
+
+    Statement                      shift and go to state 17
+    Statements                     shift and go to state 70
+    Assignment_statement           shift and go to state 18
+    Code_block                     shift and go to state 19
+    If_statement                   shift and go to state 20
+    While_statement                shift and go to state 21
+    For_statement                  shift and go to state 22
+    Write_statement                shift and go to state 23
+    Readln_statement               shift and go to state 24
+
+state 37
+
+    (41) Assignment_statement -> IDENTIFIER ASSIGNMENT . Expression
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression                     shift and go to state 71
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 38
+
+    (42) Assignment_statement -> IDENTIFIER LBRACKET . Expression RBRACKET ASSIGNMENT Expression
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression                     shift and go to state 72
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 39
+
+    (29) If_statement -> IF Expression . THEN Statement ELSE Statement
+    (30) If_statement -> IF Expression . THEN Statement
+    (43) Expression -> Expression . And_or Expression_m
+    (49) And_or -> . AND
+    (50) And_or -> . OR
+
+    THEN            shift and go to state 73
+    AND             shift and go to state 75
+    OR              shift and go to state 76
+
+    And_or                         shift and go to state 74
+
+state 40
+
+    (44) Expression -> Expression_m .
+    (46) Expression_m -> Expression_m . Sign Expression_s
+    (53) Sign -> . PLUS
+    (54) Sign -> . MINUS
+    (55) Sign -> . DIV
+    (56) Sign -> . MOD
+    (57) Sign -> . EQ
+    (58) Sign -> . NEQ
+    (59) Sign -> . LT
+    (60) Sign -> . LTE
+    (61) Sign -> . GT
+    (62) Sign -> . GTE
+
+    THEN            reduce using rule 44 (Expression -> Expression_m .)
+    AND             reduce using rule 44 (Expression -> Expression_m .)
+    OR              reduce using rule 44 (Expression -> Expression_m .)
+    DO              reduce using rule 44 (Expression -> Expression_m .)
+    SEMICOLON       reduce using rule 44 (Expression -> Expression_m .)
+    END             reduce using rule 44 (Expression -> Expression_m .)
+    TO              reduce using rule 44 (Expression -> Expression_m .)
+    DOWNTO          reduce using rule 44 (Expression -> Expression_m .)
+    ELSE            reduce using rule 44 (Expression -> Expression_m .)
+    RBRACKET        reduce using rule 44 (Expression -> Expression_m .)
+    RPAREN          reduce using rule 44 (Expression -> Expression_m .)
+    COMMA           reduce using rule 44 (Expression -> Expression_m .)
+    PLUS            shift and go to state 78
+    MINUS           shift and go to state 79
+    DIV             shift and go to state 80
+    MOD             shift and go to state 81
+    EQ              shift and go to state 82
+    NEQ             shift and go to state 83
+    LT              shift and go to state 84
+    LTE             shift and go to state 85
+    GT              shift and go to state 86
+    GTE             shift and go to state 87
+
+    Sign                           shift and go to state 77
+
+state 41
+
+    (45) Expression_m -> Expression_s .
+    (48) Expression_s -> Expression_s . Psign Element
+    (51) Psign -> . TIMES
+    (52) Psign -> . DIVISION
+
+    PLUS            reduce using rule 45 (Expression_m -> Expression_s .)
+    MINUS           reduce using rule 45 (Expression_m -> Expression_s .)
+    DIV             reduce using rule 45 (Expression_m -> Expression_s .)
+    MOD             reduce using rule 45 (Expression_m -> Expression_s .)
+    EQ              reduce using rule 45 (Expression_m -> Expression_s .)
+    NEQ             reduce using rule 45 (Expression_m -> Expression_s .)
+    LT              reduce using rule 45 (Expression_m -> Expression_s .)
+    LTE             reduce using rule 45 (Expression_m -> Expression_s .)
+    GT              reduce using rule 45 (Expression_m -> Expression_s .)
+    GTE             reduce using rule 45 (Expression_m -> Expression_s .)
+    THEN            reduce using rule 45 (Expression_m -> Expression_s .)
+    AND             reduce using rule 45 (Expression_m -> Expression_s .)
+    OR              reduce using rule 45 (Expression_m -> Expression_s .)
+    DO              reduce using rule 45 (Expression_m -> Expression_s .)
+    SEMICOLON       reduce using rule 45 (Expression_m -> Expression_s .)
+    END             reduce using rule 45 (Expression_m -> Expression_s .)
+    TO              reduce using rule 45 (Expression_m -> Expression_s .)
+    DOWNTO          reduce using rule 45 (Expression_m -> Expression_s .)
+    ELSE            reduce using rule 45 (Expression_m -> Expression_s .)
+    RBRACKET        reduce using rule 45 (Expression_m -> Expression_s .)
+    RPAREN          reduce using rule 45 (Expression_m -> Expression_s .)
+    COMMA           reduce using rule 45 (Expression_m -> Expression_s .)
+    TIMES           shift and go to state 89
+    DIVISION        shift and go to state 90
+
+    Psign                          shift and go to state 88
+
+state 42
+
+    (47) Expression_s -> Element .
+
+    TIMES           reduce using rule 47 (Expression_s -> Element .)
+    DIVISION        reduce using rule 47 (Expression_s -> Element .)
+    PLUS            reduce using rule 47 (Expression_s -> Element .)
+    MINUS           reduce using rule 47 (Expression_s -> Element .)
+    DIV             reduce using rule 47 (Expression_s -> Element .)
+    MOD             reduce using rule 47 (Expression_s -> Element .)
+    EQ              reduce using rule 47 (Expression_s -> Element .)
+    NEQ             reduce using rule 47 (Expression_s -> Element .)
+    LT              reduce using rule 47 (Expression_s -> Element .)
+    LTE             reduce using rule 47 (Expression_s -> Element .)
+    GT              reduce using rule 47 (Expression_s -> Element .)
+    GTE             reduce using rule 47 (Expression_s -> Element .)
+    THEN            reduce using rule 47 (Expression_s -> Element .)
+    AND             reduce using rule 47 (Expression_s -> Element .)
+    OR              reduce using rule 47 (Expression_s -> Element .)
+    DO              reduce using rule 47 (Expression_s -> Element .)
+    SEMICOLON       reduce using rule 47 (Expression_s -> Element .)
+    END             reduce using rule 47 (Expression_s -> Element .)
+    TO              reduce using rule 47 (Expression_s -> Element .)
+    DOWNTO          reduce using rule 47 (Expression_s -> Element .)
+    ELSE            reduce using rule 47 (Expression_s -> Element .)
+    RBRACKET        reduce using rule 47 (Expression_s -> Element .)
+    RPAREN          reduce using rule 47 (Expression_s -> Element .)
+    COMMA           reduce using rule 47 (Expression_s -> Element .)
+
+
+state 43
+
+    (63) Element -> IDENTIFIER .
+    (64) Element -> IDENTIFIER . LBRACKET Expression RBRACKET
+
+    TIMES           reduce using rule 63 (Element -> IDENTIFIER .)
+    DIVISION        reduce using rule 63 (Element -> IDENTIFIER .)
+    PLUS            reduce using rule 63 (Element -> IDENTIFIER .)
+    MINUS           reduce using rule 63 (Element -> IDENTIFIER .)
+    DIV             reduce using rule 63 (Element -> IDENTIFIER .)
+    MOD             reduce using rule 63 (Element -> IDENTIFIER .)
+    EQ              reduce using rule 63 (Element -> IDENTIFIER .)
+    NEQ             reduce using rule 63 (Element -> IDENTIFIER .)
+    LT              reduce using rule 63 (Element -> IDENTIFIER .)
+    LTE             reduce using rule 63 (Element -> IDENTIFIER .)
+    GT              reduce using rule 63 (Element -> IDENTIFIER .)
+    GTE             reduce using rule 63 (Element -> IDENTIFIER .)
+    THEN            reduce using rule 63 (Element -> IDENTIFIER .)
+    AND             reduce using rule 63 (Element -> IDENTIFIER .)
+    OR              reduce using rule 63 (Element -> IDENTIFIER .)
+    DO              reduce using rule 63 (Element -> IDENTIFIER .)
+    SEMICOLON       reduce using rule 63 (Element -> IDENTIFIER .)
+    END             reduce using rule 63 (Element -> IDENTIFIER .)
+    TO              reduce using rule 63 (Element -> IDENTIFIER .)
+    DOWNTO          reduce using rule 63 (Element -> IDENTIFIER .)
+    ELSE            reduce using rule 63 (Element -> IDENTIFIER .)
+    RBRACKET        reduce using rule 63 (Element -> IDENTIFIER .)
+    RPAREN          reduce using rule 63 (Element -> IDENTIFIER .)
+    COMMA           reduce using rule 63 (Element -> IDENTIFIER .)
+    LBRACKET        shift and go to state 91
+
+
+state 44
+
+    (65) Element -> real .
+
+    TIMES           reduce using rule 65 (Element -> real .)
+    DIVISION        reduce using rule 65 (Element -> real .)
+    PLUS            reduce using rule 65 (Element -> real .)
+    MINUS           reduce using rule 65 (Element -> real .)
+    DIV             reduce using rule 65 (Element -> real .)
+    MOD             reduce using rule 65 (Element -> real .)
+    EQ              reduce using rule 65 (Element -> real .)
+    NEQ             reduce using rule 65 (Element -> real .)
+    LT              reduce using rule 65 (Element -> real .)
+    LTE             reduce using rule 65 (Element -> real .)
+    GT              reduce using rule 65 (Element -> real .)
+    GTE             reduce using rule 65 (Element -> real .)
+    THEN            reduce using rule 65 (Element -> real .)
+    AND             reduce using rule 65 (Element -> real .)
+    OR              reduce using rule 65 (Element -> real .)
+    DO              reduce using rule 65 (Element -> real .)
+    SEMICOLON       reduce using rule 65 (Element -> real .)
+    END             reduce using rule 65 (Element -> real .)
+    TO              reduce using rule 65 (Element -> real .)
+    DOWNTO          reduce using rule 65 (Element -> real .)
+    ELSE            reduce using rule 65 (Element -> real .)
+    RBRACKET        reduce using rule 65 (Element -> real .)
+    RPAREN          reduce using rule 65 (Element -> real .)
+    COMMA           reduce using rule 65 (Element -> real .)
+
+
+state 45
+
+    (66) Element -> integer .
+
+    TIMES           reduce using rule 66 (Element -> integer .)
+    DIVISION        reduce using rule 66 (Element -> integer .)
+    PLUS            reduce using rule 66 (Element -> integer .)
+    MINUS           reduce using rule 66 (Element -> integer .)
+    DIV             reduce using rule 66 (Element -> integer .)
+    MOD             reduce using rule 66 (Element -> integer .)
+    EQ              reduce using rule 66 (Element -> integer .)
+    NEQ             reduce using rule 66 (Element -> integer .)
+    LT              reduce using rule 66 (Element -> integer .)
+    LTE             reduce using rule 66 (Element -> integer .)
+    GT              reduce using rule 66 (Element -> integer .)
+    GTE             reduce using rule 66 (Element -> integer .)
+    THEN            reduce using rule 66 (Element -> integer .)
+    AND             reduce using rule 66 (Element -> integer .)
+    OR              reduce using rule 66 (Element -> integer .)
+    DO              reduce using rule 66 (Element -> integer .)
+    SEMICOLON       reduce using rule 66 (Element -> integer .)
+    END             reduce using rule 66 (Element -> integer .)
+    TO              reduce using rule 66 (Element -> integer .)
+    DOWNTO          reduce using rule 66 (Element -> integer .)
+    ELSE            reduce using rule 66 (Element -> integer .)
+    RBRACKET        reduce using rule 66 (Element -> integer .)
+    RPAREN          reduce using rule 66 (Element -> integer .)
+    COMMA           reduce using rule 66 (Element -> integer .)
+
+
+state 46
+
+    (67) Element -> string .
+
+    TIMES           reduce using rule 67 (Element -> string .)
+    DIVISION        reduce using rule 67 (Element -> string .)
+    PLUS            reduce using rule 67 (Element -> string .)
+    MINUS           reduce using rule 67 (Element -> string .)
+    DIV             reduce using rule 67 (Element -> string .)
+    MOD             reduce using rule 67 (Element -> string .)
+    EQ              reduce using rule 67 (Element -> string .)
+    NEQ             reduce using rule 67 (Element -> string .)
+    LT              reduce using rule 67 (Element -> string .)
+    LTE             reduce using rule 67 (Element -> string .)
+    GT              reduce using rule 67 (Element -> string .)
+    GTE             reduce using rule 67 (Element -> string .)
+    THEN            reduce using rule 67 (Element -> string .)
+    AND             reduce using rule 67 (Element -> string .)
+    OR              reduce using rule 67 (Element -> string .)
+    DO              reduce using rule 67 (Element -> string .)
+    SEMICOLON       reduce using rule 67 (Element -> string .)
+    END             reduce using rule 67 (Element -> string .)
+    TO              reduce using rule 67 (Element -> string .)
+    DOWNTO          reduce using rule 67 (Element -> string .)
+    ELSE            reduce using rule 67 (Element -> string .)
+    RBRACKET        reduce using rule 67 (Element -> string .)
+    RPAREN          reduce using rule 67 (Element -> string .)
+    COMMA           reduce using rule 67 (Element -> string .)
+
+
+state 47
+
+    (68) Element -> char .
+
+    TIMES           reduce using rule 68 (Element -> char .)
+    DIVISION        reduce using rule 68 (Element -> char .)
+    PLUS            reduce using rule 68 (Element -> char .)
+    MINUS           reduce using rule 68 (Element -> char .)
+    DIV             reduce using rule 68 (Element -> char .)
+    MOD             reduce using rule 68 (Element -> char .)
+    EQ              reduce using rule 68 (Element -> char .)
+    NEQ             reduce using rule 68 (Element -> char .)
+    LT              reduce using rule 68 (Element -> char .)
+    LTE             reduce using rule 68 (Element -> char .)
+    GT              reduce using rule 68 (Element -> char .)
+    GTE             reduce using rule 68 (Element -> char .)
+    THEN            reduce using rule 68 (Element -> char .)
+    AND             reduce using rule 68 (Element -> char .)
+    OR              reduce using rule 68 (Element -> char .)
+    DO              reduce using rule 68 (Element -> char .)
+    SEMICOLON       reduce using rule 68 (Element -> char .)
+    END             reduce using rule 68 (Element -> char .)
+    TO              reduce using rule 68 (Element -> char .)
+    DOWNTO          reduce using rule 68 (Element -> char .)
+    ELSE            reduce using rule 68 (Element -> char .)
+    RBRACKET        reduce using rule 68 (Element -> char .)
+    RPAREN          reduce using rule 68 (Element -> char .)
+    COMMA           reduce using rule 68 (Element -> char .)
+
+
+state 48
+
+    (69) Element -> boolean .
+
+    TIMES           reduce using rule 69 (Element -> boolean .)
+    DIVISION        reduce using rule 69 (Element -> boolean .)
+    PLUS            reduce using rule 69 (Element -> boolean .)
+    MINUS           reduce using rule 69 (Element -> boolean .)
+    DIV             reduce using rule 69 (Element -> boolean .)
+    MOD             reduce using rule 69 (Element -> boolean .)
+    EQ              reduce using rule 69 (Element -> boolean .)
+    NEQ             reduce using rule 69 (Element -> boolean .)
+    LT              reduce using rule 69 (Element -> boolean .)
+    LTE             reduce using rule 69 (Element -> boolean .)
+    GT              reduce using rule 69 (Element -> boolean .)
+    GTE             reduce using rule 69 (Element -> boolean .)
+    THEN            reduce using rule 69 (Element -> boolean .)
+    AND             reduce using rule 69 (Element -> boolean .)
+    OR              reduce using rule 69 (Element -> boolean .)
+    DO              reduce using rule 69 (Element -> boolean .)
+    SEMICOLON       reduce using rule 69 (Element -> boolean .)
+    END             reduce using rule 69 (Element -> boolean .)
+    TO              reduce using rule 69 (Element -> boolean .)
+    DOWNTO          reduce using rule 69 (Element -> boolean .)
+    ELSE            reduce using rule 69 (Element -> boolean .)
+    RBRACKET        reduce using rule 69 (Element -> boolean .)
+    RPAREN          reduce using rule 69 (Element -> boolean .)
+    COMMA           reduce using rule 69 (Element -> boolean .)
+
+
+state 49
+
+    (70) Element -> LPAREN . Expression RPAREN
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression                     shift and go to state 92
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 50
+
+    (71) Element -> NOT . Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Element                        shift and go to state 93
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 51
+
+    (72) real -> REAL .
+
+    TIMES           reduce using rule 72 (real -> REAL .)
+    DIVISION        reduce using rule 72 (real -> REAL .)
+    PLUS            reduce using rule 72 (real -> REAL .)
+    MINUS           reduce using rule 72 (real -> REAL .)
+    DIV             reduce using rule 72 (real -> REAL .)
+    MOD             reduce using rule 72 (real -> REAL .)
+    EQ              reduce using rule 72 (real -> REAL .)
+    NEQ             reduce using rule 72 (real -> REAL .)
+    LT              reduce using rule 72 (real -> REAL .)
+    LTE             reduce using rule 72 (real -> REAL .)
+    GT              reduce using rule 72 (real -> REAL .)
+    GTE             reduce using rule 72 (real -> REAL .)
+    THEN            reduce using rule 72 (real -> REAL .)
+    AND             reduce using rule 72 (real -> REAL .)
+    OR              reduce using rule 72 (real -> REAL .)
+    DO              reduce using rule 72 (real -> REAL .)
+    SEMICOLON       reduce using rule 72 (real -> REAL .)
+    END             reduce using rule 72 (real -> REAL .)
+    TO              reduce using rule 72 (real -> REAL .)
+    DOWNTO          reduce using rule 72 (real -> REAL .)
+    ELSE            reduce using rule 72 (real -> REAL .)
+    RBRACKET        reduce using rule 72 (real -> REAL .)
+    RPAREN          reduce using rule 72 (real -> REAL .)
+    COMMA           reduce using rule 72 (real -> REAL .)
+
+
+state 52
+
+    (73) integer -> INTEGER .
+
+    TIMES           reduce using rule 73 (integer -> INTEGER .)
+    DIVISION        reduce using rule 73 (integer -> INTEGER .)
+    PLUS            reduce using rule 73 (integer -> INTEGER .)
+    MINUS           reduce using rule 73 (integer -> INTEGER .)
+    DIV             reduce using rule 73 (integer -> INTEGER .)
+    MOD             reduce using rule 73 (integer -> INTEGER .)
+    EQ              reduce using rule 73 (integer -> INTEGER .)
+    NEQ             reduce using rule 73 (integer -> INTEGER .)
+    LT              reduce using rule 73 (integer -> INTEGER .)
+    LTE             reduce using rule 73 (integer -> INTEGER .)
+    GT              reduce using rule 73 (integer -> INTEGER .)
+    GTE             reduce using rule 73 (integer -> INTEGER .)
+    THEN            reduce using rule 73 (integer -> INTEGER .)
+    AND             reduce using rule 73 (integer -> INTEGER .)
+    OR              reduce using rule 73 (integer -> INTEGER .)
+    DO              reduce using rule 73 (integer -> INTEGER .)
+    SEMICOLON       reduce using rule 73 (integer -> INTEGER .)
+    END             reduce using rule 73 (integer -> INTEGER .)
+    TO              reduce using rule 73 (integer -> INTEGER .)
+    DOWNTO          reduce using rule 73 (integer -> INTEGER .)
+    ELSE            reduce using rule 73 (integer -> INTEGER .)
+    RBRACKET        reduce using rule 73 (integer -> INTEGER .)
+    RPAREN          reduce using rule 73 (integer -> INTEGER .)
+    COMMA           reduce using rule 73 (integer -> INTEGER .)
+    DOTDOT          reduce using rule 73 (integer -> INTEGER .)
+
+
+state 53
+
+    (74) string -> STRING .
+
+    TIMES           reduce using rule 74 (string -> STRING .)
+    DIVISION        reduce using rule 74 (string -> STRING .)
+    PLUS            reduce using rule 74 (string -> STRING .)
+    MINUS           reduce using rule 74 (string -> STRING .)
+    DIV             reduce using rule 74 (string -> STRING .)
+    MOD             reduce using rule 74 (string -> STRING .)
+    EQ              reduce using rule 74 (string -> STRING .)
+    NEQ             reduce using rule 74 (string -> STRING .)
+    LT              reduce using rule 74 (string -> STRING .)
+    LTE             reduce using rule 74 (string -> STRING .)
+    GT              reduce using rule 74 (string -> STRING .)
+    GTE             reduce using rule 74 (string -> STRING .)
+    THEN            reduce using rule 74 (string -> STRING .)
+    AND             reduce using rule 74 (string -> STRING .)
+    OR              reduce using rule 74 (string -> STRING .)
+    DO              reduce using rule 74 (string -> STRING .)
+    SEMICOLON       reduce using rule 74 (string -> STRING .)
+    END             reduce using rule 74 (string -> STRING .)
+    TO              reduce using rule 74 (string -> STRING .)
+    DOWNTO          reduce using rule 74 (string -> STRING .)
+    ELSE            reduce using rule 74 (string -> STRING .)
+    RBRACKET        reduce using rule 74 (string -> STRING .)
+    RPAREN          reduce using rule 74 (string -> STRING .)
+    COMMA           reduce using rule 74 (string -> STRING .)
+
+
+state 54
+
+    (75) char -> CHAR .
+
+    TIMES           reduce using rule 75 (char -> CHAR .)
+    DIVISION        reduce using rule 75 (char -> CHAR .)
+    PLUS            reduce using rule 75 (char -> CHAR .)
+    MINUS           reduce using rule 75 (char -> CHAR .)
+    DIV             reduce using rule 75 (char -> CHAR .)
+    MOD             reduce using rule 75 (char -> CHAR .)
+    EQ              reduce using rule 75 (char -> CHAR .)
+    NEQ             reduce using rule 75 (char -> CHAR .)
+    LT              reduce using rule 75 (char -> CHAR .)
+    LTE             reduce using rule 75 (char -> CHAR .)
+    GT              reduce using rule 75 (char -> CHAR .)
+    GTE             reduce using rule 75 (char -> CHAR .)
+    THEN            reduce using rule 75 (char -> CHAR .)
+    AND             reduce using rule 75 (char -> CHAR .)
+    OR              reduce using rule 75 (char -> CHAR .)
+    DO              reduce using rule 75 (char -> CHAR .)
+    SEMICOLON       reduce using rule 75 (char -> CHAR .)
+    END             reduce using rule 75 (char -> CHAR .)
+    TO              reduce using rule 75 (char -> CHAR .)
+    DOWNTO          reduce using rule 75 (char -> CHAR .)
+    ELSE            reduce using rule 75 (char -> CHAR .)
+    RBRACKET        reduce using rule 75 (char -> CHAR .)
+    RPAREN          reduce using rule 75 (char -> CHAR .)
+    COMMA           reduce using rule 75 (char -> CHAR .)
+
+
+state 55
+
+    (76) boolean -> BOOLEAN .
+
+    TIMES           reduce using rule 76 (boolean -> BOOLEAN .)
+    DIVISION        reduce using rule 76 (boolean -> BOOLEAN .)
+    PLUS            reduce using rule 76 (boolean -> BOOLEAN .)
+    MINUS           reduce using rule 76 (boolean -> BOOLEAN .)
+    DIV             reduce using rule 76 (boolean -> BOOLEAN .)
+    MOD             reduce using rule 76 (boolean -> BOOLEAN .)
+    EQ              reduce using rule 76 (boolean -> BOOLEAN .)
+    NEQ             reduce using rule 76 (boolean -> BOOLEAN .)
+    LT              reduce using rule 76 (boolean -> BOOLEAN .)
+    LTE             reduce using rule 76 (boolean -> BOOLEAN .)
+    GT              reduce using rule 76 (boolean -> BOOLEAN .)
+    GTE             reduce using rule 76 (boolean -> BOOLEAN .)
+    THEN            reduce using rule 76 (boolean -> BOOLEAN .)
+    AND             reduce using rule 76 (boolean -> BOOLEAN .)
+    OR              reduce using rule 76 (boolean -> BOOLEAN .)
+    DO              reduce using rule 76 (boolean -> BOOLEAN .)
+    SEMICOLON       reduce using rule 76 (boolean -> BOOLEAN .)
+    END             reduce using rule 76 (boolean -> BOOLEAN .)
+    TO              reduce using rule 76 (boolean -> BOOLEAN .)
+    DOWNTO          reduce using rule 76 (boolean -> BOOLEAN .)
+    ELSE            reduce using rule 76 (boolean -> BOOLEAN .)
+    RBRACKET        reduce using rule 76 (boolean -> BOOLEAN .)
+    RPAREN          reduce using rule 76 (boolean -> BOOLEAN .)
+    COMMA           reduce using rule 76 (boolean -> BOOLEAN .)
+
+
+state 56
+
+    (31) While_statement -> WHILE Expression . DO Statement
+    (43) Expression -> Expression . And_or Expression_m
+    (49) And_or -> . AND
+    (50) And_or -> . OR
+
+    DO              shift and go to state 94
+    AND             shift and go to state 75
+    OR              shift and go to state 76
+
+    And_or                         shift and go to state 74
+
+state 57
+
+    (32) For_statement -> FOR Assignment_statement . TO Expression DO Statement
+    (33) For_statement -> FOR Assignment_statement . DOWNTO Expression DO Statement
+
+    TO              shift and go to state 95
+    DOWNTO          shift and go to state 96
+
+
+state 58
+
+    (34) Write_statement -> WRITE LPAREN . Param_list RPAREN
+    (36) Param_list -> . Param_list COMMA Param
+    (37) Param_list -> . Param
+    (38) Param -> . Expression
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Param_list                     shift and go to state 97
+    Param                          shift and go to state 98
+    Expression                     shift and go to state 99
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 59
+
+    (35) Write_statement -> WRITELN LPAREN . Param_list RPAREN
+    (36) Param_list -> . Param_list COMMA Param
+    (37) Param_list -> . Param
+    (38) Param -> . Expression
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Param_list                     shift and go to state 100
+    Param                          shift and go to state 98
+    Expression                     shift and go to state 99
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 60
+
+    (39) Readln_statement -> READLN LPAREN . IDENTIFIER RPAREN
+    (40) Readln_statement -> READLN LPAREN . IDENTIFIER LBRACKET Expression RBRACKET RPAREN
+
+    IDENTIFIER      shift and go to state 101
+
+
+state 61
+
+    (8) Var_declaration -> Identifier_list COLON Type . SEMICOLON
+
+    SEMICOLON       shift and go to state 102
+
+
+state 62
+
+    (11) Type -> TINTEGER .
+
+    SEMICOLON       reduce using rule 11 (Type -> TINTEGER .)
+
+
+state 63
+
+    (12) Type -> TREAL .
+
+    SEMICOLON       reduce using rule 12 (Type -> TREAL .)
+
+
+state 64
+
+    (13) Type -> TSTRING .
+
+    SEMICOLON       reduce using rule 13 (Type -> TSTRING .)
+
+
+state 65
+
+    (14) Type -> TCHAR .
+
+    SEMICOLON       reduce using rule 14 (Type -> TCHAR .)
+
+
+state 66
+
+    (15) Type -> TBOOLEAN .
+
+    SEMICOLON       reduce using rule 15 (Type -> TBOOLEAN .)
+
+
+state 67
+
+    (16) Type -> Array_type .
+
+    SEMICOLON       reduce using rule 16 (Type -> Array_type .)
+
+
+state 68
+
+    (17) Array_type -> ARRAY . LBRACKET integer DOTDOT integer RBRACKET OF Type
+
+    LBRACKET        shift and go to state 103
+
+
+state 69
+
+    (9) Identifier_list -> IDENTIFIER COMMA Identifier_list .
+
+    COLON           reduce using rule 9 (Identifier_list -> IDENTIFIER COMMA Identifier_list .)
+
+
+state 70
+
+    (19) Statements -> Statement SEMICOLON Statements .
+
+    END             reduce using rule 19 (Statements -> Statement SEMICOLON Statements .)
+
+
+state 71
+
+    (41) Assignment_statement -> IDENTIFIER ASSIGNMENT Expression .
+    (43) Expression -> Expression . And_or Expression_m
+    (49) And_or -> . AND
+    (50) And_or -> . OR
+
+    SEMICOLON       reduce using rule 41 (Assignment_statement -> IDENTIFIER ASSIGNMENT Expression .)
+    END             reduce using rule 41 (Assignment_statement -> IDENTIFIER ASSIGNMENT Expression .)
+    TO              reduce using rule 41 (Assignment_statement -> IDENTIFIER ASSIGNMENT Expression .)
+    DOWNTO          reduce using rule 41 (Assignment_statement -> IDENTIFIER ASSIGNMENT Expression .)
+    ELSE            reduce using rule 41 (Assignment_statement -> IDENTIFIER ASSIGNMENT Expression .)
+    AND             shift and go to state 75
+    OR              shift and go to state 76
+
+    And_or                         shift and go to state 74
+
+state 72
+
+    (42) Assignment_statement -> IDENTIFIER LBRACKET Expression . RBRACKET ASSIGNMENT Expression
+    (43) Expression -> Expression . And_or Expression_m
+    (49) And_or -> . AND
+    (50) And_or -> . OR
+
+    RBRACKET        shift and go to state 104
+    AND             shift and go to state 75
+    OR              shift and go to state 76
+
+    And_or                         shift and go to state 74
+
+state 73
+
+    (29) If_statement -> IF Expression THEN . Statement ELSE Statement
+    (30) If_statement -> IF Expression THEN . Statement
+    (21) Statement -> . Assignment_statement
+    (22) Statement -> . Code_block
+    (23) Statement -> . If_statement
+    (24) Statement -> . While_statement
+    (25) Statement -> . For_statement
+    (26) Statement -> . Write_statement
+    (27) Statement -> . Readln_statement
+    (28) Statement -> .
+    (41) Assignment_statement -> . IDENTIFIER ASSIGNMENT Expression
+    (42) Assignment_statement -> . IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression
+    (18) Code_block -> . BEGIN Statements END
+    (29) If_statement -> . IF Expression THEN Statement ELSE Statement
+    (30) If_statement -> . IF Expression THEN Statement
+    (31) While_statement -> . WHILE Expression DO Statement
+    (32) For_statement -> . FOR Assignment_statement TO Expression DO Statement
+    (33) For_statement -> . FOR Assignment_statement DOWNTO Expression DO Statement
+    (34) Write_statement -> . WRITE LPAREN Param_list RPAREN
+    (35) Write_statement -> . WRITELN LPAREN Param_list RPAREN
+    (39) Readln_statement -> . READLN LPAREN IDENTIFIER RPAREN
+    (40) Readln_statement -> . READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN
+
+    ELSE            reduce using rule 28 (Statement -> .)
+    SEMICOLON       reduce using rule 28 (Statement -> .)
+    END             reduce using rule 28 (Statement -> .)
+    IDENTIFIER      shift and go to state 25
+    BEGIN           shift and go to state 11
+    IF              shift and go to state 26
+    WHILE           shift and go to state 27
+    FOR             shift and go to state 28
+    WRITE           shift and go to state 29
+    WRITELN         shift and go to state 30
+    READLN          shift and go to state 31
+
+    Statement                      shift and go to state 105
+    Assignment_statement           shift and go to state 18
+    Code_block                     shift and go to state 19
+    If_statement                   shift and go to state 20
+    While_statement                shift and go to state 21
+    For_statement                  shift and go to state 22
+    Write_statement                shift and go to state 23
+    Readln_statement               shift and go to state 24
+
+state 74
+
+    (43) Expression -> Expression And_or . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression_m                   shift and go to state 106
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 75
+
+    (49) And_or -> AND .
+
+    IDENTIFIER      reduce using rule 49 (And_or -> AND .)
+    LPAREN          reduce using rule 49 (And_or -> AND .)
+    NOT             reduce using rule 49 (And_or -> AND .)
+    REAL            reduce using rule 49 (And_or -> AND .)
+    INTEGER         reduce using rule 49 (And_or -> AND .)
+    STRING          reduce using rule 49 (And_or -> AND .)
+    CHAR            reduce using rule 49 (And_or -> AND .)
+    BOOLEAN         reduce using rule 49 (And_or -> AND .)
+
+
+state 76
+
+    (50) And_or -> OR .
+
+    IDENTIFIER      reduce using rule 50 (And_or -> OR .)
+    LPAREN          reduce using rule 50 (And_or -> OR .)
+    NOT             reduce using rule 50 (And_or -> OR .)
+    REAL            reduce using rule 50 (And_or -> OR .)
+    INTEGER         reduce using rule 50 (And_or -> OR .)
+    STRING          reduce using rule 50 (And_or -> OR .)
+    CHAR            reduce using rule 50 (And_or -> OR .)
+    BOOLEAN         reduce using rule 50 (And_or -> OR .)
+
+
+state 77
+
+    (46) Expression_m -> Expression_m Sign . Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression_s                   shift and go to state 107
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 78
+
+    (53) Sign -> PLUS .
+
+    IDENTIFIER      reduce using rule 53 (Sign -> PLUS .)
+    LPAREN          reduce using rule 53 (Sign -> PLUS .)
+    NOT             reduce using rule 53 (Sign -> PLUS .)
+    REAL            reduce using rule 53 (Sign -> PLUS .)
+    INTEGER         reduce using rule 53 (Sign -> PLUS .)
+    STRING          reduce using rule 53 (Sign -> PLUS .)
+    CHAR            reduce using rule 53 (Sign -> PLUS .)
+    BOOLEAN         reduce using rule 53 (Sign -> PLUS .)
+
+
+state 79
+
+    (54) Sign -> MINUS .
+
+    IDENTIFIER      reduce using rule 54 (Sign -> MINUS .)
+    LPAREN          reduce using rule 54 (Sign -> MINUS .)
+    NOT             reduce using rule 54 (Sign -> MINUS .)
+    REAL            reduce using rule 54 (Sign -> MINUS .)
+    INTEGER         reduce using rule 54 (Sign -> MINUS .)
+    STRING          reduce using rule 54 (Sign -> MINUS .)
+    CHAR            reduce using rule 54 (Sign -> MINUS .)
+    BOOLEAN         reduce using rule 54 (Sign -> MINUS .)
+
+
+state 80
+
+    (55) Sign -> DIV .
+
+    IDENTIFIER      reduce using rule 55 (Sign -> DIV .)
+    LPAREN          reduce using rule 55 (Sign -> DIV .)
+    NOT             reduce using rule 55 (Sign -> DIV .)
+    REAL            reduce using rule 55 (Sign -> DIV .)
+    INTEGER         reduce using rule 55 (Sign -> DIV .)
+    STRING          reduce using rule 55 (Sign -> DIV .)
+    CHAR            reduce using rule 55 (Sign -> DIV .)
+    BOOLEAN         reduce using rule 55 (Sign -> DIV .)
+
+
+state 81
+
+    (56) Sign -> MOD .
+
+    IDENTIFIER      reduce using rule 56 (Sign -> MOD .)
+    LPAREN          reduce using rule 56 (Sign -> MOD .)
+    NOT             reduce using rule 56 (Sign -> MOD .)
+    REAL            reduce using rule 56 (Sign -> MOD .)
+    INTEGER         reduce using rule 56 (Sign -> MOD .)
+    STRING          reduce using rule 56 (Sign -> MOD .)
+    CHAR            reduce using rule 56 (Sign -> MOD .)
+    BOOLEAN         reduce using rule 56 (Sign -> MOD .)
+
+
+state 82
+
+    (57) Sign -> EQ .
+
+    IDENTIFIER      reduce using rule 57 (Sign -> EQ .)
+    LPAREN          reduce using rule 57 (Sign -> EQ .)
+    NOT             reduce using rule 57 (Sign -> EQ .)
+    REAL            reduce using rule 57 (Sign -> EQ .)
+    INTEGER         reduce using rule 57 (Sign -> EQ .)
+    STRING          reduce using rule 57 (Sign -> EQ .)
+    CHAR            reduce using rule 57 (Sign -> EQ .)
+    BOOLEAN         reduce using rule 57 (Sign -> EQ .)
+
+
+state 83
+
+    (58) Sign -> NEQ .
+
+    IDENTIFIER      reduce using rule 58 (Sign -> NEQ .)
+    LPAREN          reduce using rule 58 (Sign -> NEQ .)
+    NOT             reduce using rule 58 (Sign -> NEQ .)
+    REAL            reduce using rule 58 (Sign -> NEQ .)
+    INTEGER         reduce using rule 58 (Sign -> NEQ .)
+    STRING          reduce using rule 58 (Sign -> NEQ .)
+    CHAR            reduce using rule 58 (Sign -> NEQ .)
+    BOOLEAN         reduce using rule 58 (Sign -> NEQ .)
+
+
+state 84
+
+    (59) Sign -> LT .
+
+    IDENTIFIER      reduce using rule 59 (Sign -> LT .)
+    LPAREN          reduce using rule 59 (Sign -> LT .)
+    NOT             reduce using rule 59 (Sign -> LT .)
+    REAL            reduce using rule 59 (Sign -> LT .)
+    INTEGER         reduce using rule 59 (Sign -> LT .)
+    STRING          reduce using rule 59 (Sign -> LT .)
+    CHAR            reduce using rule 59 (Sign -> LT .)
+    BOOLEAN         reduce using rule 59 (Sign -> LT .)
+
+
+state 85
+
+    (60) Sign -> LTE .
+
+    IDENTIFIER      reduce using rule 60 (Sign -> LTE .)
+    LPAREN          reduce using rule 60 (Sign -> LTE .)
+    NOT             reduce using rule 60 (Sign -> LTE .)
+    REAL            reduce using rule 60 (Sign -> LTE .)
+    INTEGER         reduce using rule 60 (Sign -> LTE .)
+    STRING          reduce using rule 60 (Sign -> LTE .)
+    CHAR            reduce using rule 60 (Sign -> LTE .)
+    BOOLEAN         reduce using rule 60 (Sign -> LTE .)
+
+
+state 86
+
+    (61) Sign -> GT .
+
+    IDENTIFIER      reduce using rule 61 (Sign -> GT .)
+    LPAREN          reduce using rule 61 (Sign -> GT .)
+    NOT             reduce using rule 61 (Sign -> GT .)
+    REAL            reduce using rule 61 (Sign -> GT .)
+    INTEGER         reduce using rule 61 (Sign -> GT .)
+    STRING          reduce using rule 61 (Sign -> GT .)
+    CHAR            reduce using rule 61 (Sign -> GT .)
+    BOOLEAN         reduce using rule 61 (Sign -> GT .)
+
+
+state 87
+
+    (62) Sign -> GTE .
+
+    IDENTIFIER      reduce using rule 62 (Sign -> GTE .)
+    LPAREN          reduce using rule 62 (Sign -> GTE .)
+    NOT             reduce using rule 62 (Sign -> GTE .)
+    REAL            reduce using rule 62 (Sign -> GTE .)
+    INTEGER         reduce using rule 62 (Sign -> GTE .)
+    STRING          reduce using rule 62 (Sign -> GTE .)
+    CHAR            reduce using rule 62 (Sign -> GTE .)
+    BOOLEAN         reduce using rule 62 (Sign -> GTE .)
+
+
+state 88
+
+    (48) Expression_s -> Expression_s Psign . Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Element                        shift and go to state 108
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 89
+
+    (51) Psign -> TIMES .
+
+    IDENTIFIER      reduce using rule 51 (Psign -> TIMES .)
+    LPAREN          reduce using rule 51 (Psign -> TIMES .)
+    NOT             reduce using rule 51 (Psign -> TIMES .)
+    REAL            reduce using rule 51 (Psign -> TIMES .)
+    INTEGER         reduce using rule 51 (Psign -> TIMES .)
+    STRING          reduce using rule 51 (Psign -> TIMES .)
+    CHAR            reduce using rule 51 (Psign -> TIMES .)
+    BOOLEAN         reduce using rule 51 (Psign -> TIMES .)
+
+
+state 90
+
+    (52) Psign -> DIVISION .
+
+    IDENTIFIER      reduce using rule 52 (Psign -> DIVISION .)
+    LPAREN          reduce using rule 52 (Psign -> DIVISION .)
+    NOT             reduce using rule 52 (Psign -> DIVISION .)
+    REAL            reduce using rule 52 (Psign -> DIVISION .)
+    INTEGER         reduce using rule 52 (Psign -> DIVISION .)
+    STRING          reduce using rule 52 (Psign -> DIVISION .)
+    CHAR            reduce using rule 52 (Psign -> DIVISION .)
+    BOOLEAN         reduce using rule 52 (Psign -> DIVISION .)
+
+
+state 91
+
+    (64) Element -> IDENTIFIER LBRACKET . Expression RBRACKET
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression                     shift and go to state 109
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 92
+
+    (70) Element -> LPAREN Expression . RPAREN
+    (43) Expression -> Expression . And_or Expression_m
+    (49) And_or -> . AND
+    (50) And_or -> . OR
+
+    RPAREN          shift and go to state 110
+    AND             shift and go to state 75
+    OR              shift and go to state 76
+
+    And_or                         shift and go to state 74
+
+state 93
+
+    (71) Element -> NOT Element .
+
+    TIMES           reduce using rule 71 (Element -> NOT Element .)
+    DIVISION        reduce using rule 71 (Element -> NOT Element .)
+    PLUS            reduce using rule 71 (Element -> NOT Element .)
+    MINUS           reduce using rule 71 (Element -> NOT Element .)
+    DIV             reduce using rule 71 (Element -> NOT Element .)
+    MOD             reduce using rule 71 (Element -> NOT Element .)
+    EQ              reduce using rule 71 (Element -> NOT Element .)
+    NEQ             reduce using rule 71 (Element -> NOT Element .)
+    LT              reduce using rule 71 (Element -> NOT Element .)
+    LTE             reduce using rule 71 (Element -> NOT Element .)
+    GT              reduce using rule 71 (Element -> NOT Element .)
+    GTE             reduce using rule 71 (Element -> NOT Element .)
+    THEN            reduce using rule 71 (Element -> NOT Element .)
+    AND             reduce using rule 71 (Element -> NOT Element .)
+    OR              reduce using rule 71 (Element -> NOT Element .)
+    DO              reduce using rule 71 (Element -> NOT Element .)
+    SEMICOLON       reduce using rule 71 (Element -> NOT Element .)
+    END             reduce using rule 71 (Element -> NOT Element .)
+    TO              reduce using rule 71 (Element -> NOT Element .)
+    DOWNTO          reduce using rule 71 (Element -> NOT Element .)
+    ELSE            reduce using rule 71 (Element -> NOT Element .)
+    RBRACKET        reduce using rule 71 (Element -> NOT Element .)
+    RPAREN          reduce using rule 71 (Element -> NOT Element .)
+    COMMA           reduce using rule 71 (Element -> NOT Element .)
+
+
+state 94
+
+    (31) While_statement -> WHILE Expression DO . Statement
+    (21) Statement -> . Assignment_statement
+    (22) Statement -> . Code_block
+    (23) Statement -> . If_statement
+    (24) Statement -> . While_statement
+    (25) Statement -> . For_statement
+    (26) Statement -> . Write_statement
+    (27) Statement -> . Readln_statement
+    (28) Statement -> .
+    (41) Assignment_statement -> . IDENTIFIER ASSIGNMENT Expression
+    (42) Assignment_statement -> . IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression
+    (18) Code_block -> . BEGIN Statements END
+    (29) If_statement -> . IF Expression THEN Statement ELSE Statement
+    (30) If_statement -> . IF Expression THEN Statement
+    (31) While_statement -> . WHILE Expression DO Statement
+    (32) For_statement -> . FOR Assignment_statement TO Expression DO Statement
+    (33) For_statement -> . FOR Assignment_statement DOWNTO Expression DO Statement
+    (34) Write_statement -> . WRITE LPAREN Param_list RPAREN
+    (35) Write_statement -> . WRITELN LPAREN Param_list RPAREN
+    (39) Readln_statement -> . READLN LPAREN IDENTIFIER RPAREN
+    (40) Readln_statement -> . READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN
+
+    ELSE            reduce using rule 28 (Statement -> .)
+    SEMICOLON       reduce using rule 28 (Statement -> .)
+    END             reduce using rule 28 (Statement -> .)
+    IDENTIFIER      shift and go to state 25
+    BEGIN           shift and go to state 11
+    IF              shift and go to state 26
+    WHILE           shift and go to state 27
+    FOR             shift and go to state 28
+    WRITE           shift and go to state 29
+    WRITELN         shift and go to state 30
+    READLN          shift and go to state 31
+
+    Statement                      shift and go to state 111
+    Assignment_statement           shift and go to state 18
+    Code_block                     shift and go to state 19
+    If_statement                   shift and go to state 20
+    While_statement                shift and go to state 21
+    For_statement                  shift and go to state 22
+    Write_statement                shift and go to state 23
+    Readln_statement               shift and go to state 24
+
+state 95
+
+    (32) For_statement -> FOR Assignment_statement TO . Expression DO Statement
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression                     shift and go to state 112
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 96
+
+    (33) For_statement -> FOR Assignment_statement DOWNTO . Expression DO Statement
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression                     shift and go to state 113
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 97
+
+    (34) Write_statement -> WRITE LPAREN Param_list . RPAREN
+    (36) Param_list -> Param_list . COMMA Param
+
+    RPAREN          shift and go to state 114
+    COMMA           shift and go to state 115
+
+
+state 98
+
+    (37) Param_list -> Param .
+
+    RPAREN          reduce using rule 37 (Param_list -> Param .)
+    COMMA           reduce using rule 37 (Param_list -> Param .)
+
+
+state 99
+
+    (38) Param -> Expression .
+    (43) Expression -> Expression . And_or Expression_m
+    (49) And_or -> . AND
+    (50) And_or -> . OR
+
+    RPAREN          reduce using rule 38 (Param -> Expression .)
+    COMMA           reduce using rule 38 (Param -> Expression .)
+    AND             shift and go to state 75
+    OR              shift and go to state 76
+
+    And_or                         shift and go to state 74
+
+state 100
+
+    (35) Write_statement -> WRITELN LPAREN Param_list . RPAREN
+    (36) Param_list -> Param_list . COMMA Param
+
+    RPAREN          shift and go to state 116
+    COMMA           shift and go to state 115
+
+
+state 101
+
+    (39) Readln_statement -> READLN LPAREN IDENTIFIER . RPAREN
+    (40) Readln_statement -> READLN LPAREN IDENTIFIER . LBRACKET Expression RBRACKET RPAREN
+
+    RPAREN          shift and go to state 117
+    LBRACKET        shift and go to state 118
+
+
+state 102
+
+    (8) Var_declaration -> Identifier_list COLON Type SEMICOLON .
+
+    IDENTIFIER      reduce using rule 8 (Var_declaration -> Identifier_list COLON Type SEMICOLON .)
+    BEGIN           reduce using rule 8 (Var_declaration -> Identifier_list COLON Type SEMICOLON .)
+
+
+state 103
+
+    (17) Array_type -> ARRAY LBRACKET . integer DOTDOT integer RBRACKET OF Type
+    (73) integer -> . INTEGER
+
+    INTEGER         shift and go to state 52
+
+    integer                        shift and go to state 119
+
+state 104
+
+    (42) Assignment_statement -> IDENTIFIER LBRACKET Expression RBRACKET . ASSIGNMENT Expression
+
+    ASSIGNMENT      shift and go to state 120
+
+
+state 105
+
+    (29) If_statement -> IF Expression THEN Statement . ELSE Statement
+    (30) If_statement -> IF Expression THEN Statement .
+
+  ! shift/reduce conflict for ELSE resolved as shift
+    ELSE            shift and go to state 121
+    SEMICOLON       reduce using rule 30 (If_statement -> IF Expression THEN Statement .)
+    END             reduce using rule 30 (If_statement -> IF Expression THEN Statement .)
+
+  ! ELSE            [ reduce using rule 30 (If_statement -> IF Expression THEN Statement .) ]
+
+
+state 106
+
+    (43) Expression -> Expression And_or Expression_m .
+    (46) Expression_m -> Expression_m . Sign Expression_s
+    (53) Sign -> . PLUS
+    (54) Sign -> . MINUS
+    (55) Sign -> . DIV
+    (56) Sign -> . MOD
+    (57) Sign -> . EQ
+    (58) Sign -> . NEQ
+    (59) Sign -> . LT
+    (60) Sign -> . LTE
+    (61) Sign -> . GT
+    (62) Sign -> . GTE
+
+    THEN            reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    AND             reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    OR              reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    DO              reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    SEMICOLON       reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    END             reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    TO              reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    DOWNTO          reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    ELSE            reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    RBRACKET        reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    RPAREN          reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    COMMA           reduce using rule 43 (Expression -> Expression And_or Expression_m .)
+    PLUS            shift and go to state 78
+    MINUS           shift and go to state 79
+    DIV             shift and go to state 80
+    MOD             shift and go to state 81
+    EQ              shift and go to state 82
+    NEQ             shift and go to state 83
+    LT              shift and go to state 84
+    LTE             shift and go to state 85
+    GT              shift and go to state 86
+    GTE             shift and go to state 87
+
+    Sign                           shift and go to state 77
+
+state 107
+
+    (46) Expression_m -> Expression_m Sign Expression_s .
+    (48) Expression_s -> Expression_s . Psign Element
+    (51) Psign -> . TIMES
+    (52) Psign -> . DIVISION
+
+    PLUS            reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    MINUS           reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    DIV             reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    MOD             reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    EQ              reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    NEQ             reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    LT              reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    LTE             reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    GT              reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    GTE             reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    THEN            reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    AND             reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    OR              reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    DO              reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    SEMICOLON       reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    END             reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    TO              reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    DOWNTO          reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    ELSE            reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    RBRACKET        reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    RPAREN          reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    COMMA           reduce using rule 46 (Expression_m -> Expression_m Sign Expression_s .)
+    TIMES           shift and go to state 89
+    DIVISION        shift and go to state 90
+
+    Psign                          shift and go to state 88
+
+state 108
+
+    (48) Expression_s -> Expression_s Psign Element .
+
+    TIMES           reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    DIVISION        reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    PLUS            reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    MINUS           reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    DIV             reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    MOD             reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    EQ              reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    NEQ             reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    LT              reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    LTE             reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    GT              reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    GTE             reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    THEN            reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    AND             reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    OR              reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    DO              reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    SEMICOLON       reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    END             reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    TO              reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    DOWNTO          reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    ELSE            reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    RBRACKET        reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    RPAREN          reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+    COMMA           reduce using rule 48 (Expression_s -> Expression_s Psign Element .)
+
+
+state 109
+
+    (64) Element -> IDENTIFIER LBRACKET Expression . RBRACKET
+    (43) Expression -> Expression . And_or Expression_m
+    (49) And_or -> . AND
+    (50) And_or -> . OR
+
+    RBRACKET        shift and go to state 122
+    AND             shift and go to state 75
+    OR              shift and go to state 76
+
+    And_or                         shift and go to state 74
+
+state 110
+
+    (70) Element -> LPAREN Expression RPAREN .
+
+    TIMES           reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    DIVISION        reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    PLUS            reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    MINUS           reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    DIV             reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    MOD             reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    EQ              reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    NEQ             reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    LT              reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    LTE             reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    GT              reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    GTE             reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    THEN            reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    AND             reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    OR              reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    DO              reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    SEMICOLON       reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    END             reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    TO              reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    DOWNTO          reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    ELSE            reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    RBRACKET        reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    RPAREN          reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+    COMMA           reduce using rule 70 (Element -> LPAREN Expression RPAREN .)
+
+
+state 111
+
+    (31) While_statement -> WHILE Expression DO Statement .
+
+    SEMICOLON       reduce using rule 31 (While_statement -> WHILE Expression DO Statement .)
+    END             reduce using rule 31 (While_statement -> WHILE Expression DO Statement .)
+    ELSE            reduce using rule 31 (While_statement -> WHILE Expression DO Statement .)
+
+
+state 112
+
+    (32) For_statement -> FOR Assignment_statement TO Expression . DO Statement
+    (43) Expression -> Expression . And_or Expression_m
+    (49) And_or -> . AND
+    (50) And_or -> . OR
+
+    DO              shift and go to state 123
+    AND             shift and go to state 75
+    OR              shift and go to state 76
+
+    And_or                         shift and go to state 74
+
+state 113
+
+    (33) For_statement -> FOR Assignment_statement DOWNTO Expression . DO Statement
+    (43) Expression -> Expression . And_or Expression_m
+    (49) And_or -> . AND
+    (50) And_or -> . OR
+
+    DO              shift and go to state 124
+    AND             shift and go to state 75
+    OR              shift and go to state 76
+
+    And_or                         shift and go to state 74
+
+state 114
+
+    (34) Write_statement -> WRITE LPAREN Param_list RPAREN .
+
+    SEMICOLON       reduce using rule 34 (Write_statement -> WRITE LPAREN Param_list RPAREN .)
+    END             reduce using rule 34 (Write_statement -> WRITE LPAREN Param_list RPAREN .)
+    ELSE            reduce using rule 34 (Write_statement -> WRITE LPAREN Param_list RPAREN .)
+
+
+state 115
+
+    (36) Param_list -> Param_list COMMA . Param
+    (38) Param -> . Expression
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Param                          shift and go to state 125
+    Expression                     shift and go to state 99
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 116
+
+    (35) Write_statement -> WRITELN LPAREN Param_list RPAREN .
+
+    SEMICOLON       reduce using rule 35 (Write_statement -> WRITELN LPAREN Param_list RPAREN .)
+    END             reduce using rule 35 (Write_statement -> WRITELN LPAREN Param_list RPAREN .)
+    ELSE            reduce using rule 35 (Write_statement -> WRITELN LPAREN Param_list RPAREN .)
+
+
+state 117
+
+    (39) Readln_statement -> READLN LPAREN IDENTIFIER RPAREN .
+
+    SEMICOLON       reduce using rule 39 (Readln_statement -> READLN LPAREN IDENTIFIER RPAREN .)
+    END             reduce using rule 39 (Readln_statement -> READLN LPAREN IDENTIFIER RPAREN .)
+    ELSE            reduce using rule 39 (Readln_statement -> READLN LPAREN IDENTIFIER RPAREN .)
+
+
+state 118
+
+    (40) Readln_statement -> READLN LPAREN IDENTIFIER LBRACKET . Expression RBRACKET RPAREN
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression                     shift and go to state 126
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 119
+
+    (17) Array_type -> ARRAY LBRACKET integer . DOTDOT integer RBRACKET OF Type
+
+    DOTDOT          shift and go to state 127
+
+
+state 120
+
+    (42) Assignment_statement -> IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT . Expression
+    (43) Expression -> . Expression And_or Expression_m
+    (44) Expression -> . Expression_m
+    (45) Expression_m -> . Expression_s
+    (46) Expression_m -> . Expression_m Sign Expression_s
+    (47) Expression_s -> . Element
+    (48) Expression_s -> . Expression_s Psign Element
+    (63) Element -> . IDENTIFIER
+    (64) Element -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (65) Element -> . real
+    (66) Element -> . integer
+    (67) Element -> . string
+    (68) Element -> . char
+    (69) Element -> . boolean
+    (70) Element -> . LPAREN Expression RPAREN
+    (71) Element -> . NOT Element
+    (72) real -> . REAL
+    (73) integer -> . INTEGER
+    (74) string -> . STRING
+    (75) char -> . CHAR
+    (76) boolean -> . BOOLEAN
+
+    IDENTIFIER      shift and go to state 43
+    LPAREN          shift and go to state 49
+    NOT             shift and go to state 50
+    REAL            shift and go to state 51
+    INTEGER         shift and go to state 52
+    STRING          shift and go to state 53
+    CHAR            shift and go to state 54
+    BOOLEAN         shift and go to state 55
+
+    Expression                     shift and go to state 128
+    Expression_m                   shift and go to state 40
+    Expression_s                   shift and go to state 41
+    Element                        shift and go to state 42
+    real                           shift and go to state 44
+    integer                        shift and go to state 45
+    string                         shift and go to state 46
+    char                           shift and go to state 47
+    boolean                        shift and go to state 48
+
+state 121
+
+    (29) If_statement -> IF Expression THEN Statement ELSE . Statement
+    (21) Statement -> . Assignment_statement
+    (22) Statement -> . Code_block
+    (23) Statement -> . If_statement
+    (24) Statement -> . While_statement
+    (25) Statement -> . For_statement
+    (26) Statement -> . Write_statement
+    (27) Statement -> . Readln_statement
+    (28) Statement -> .
+    (41) Assignment_statement -> . IDENTIFIER ASSIGNMENT Expression
+    (42) Assignment_statement -> . IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression
+    (18) Code_block -> . BEGIN Statements END
+    (29) If_statement -> . IF Expression THEN Statement ELSE Statement
+    (30) If_statement -> . IF Expression THEN Statement
+    (31) While_statement -> . WHILE Expression DO Statement
+    (32) For_statement -> . FOR Assignment_statement TO Expression DO Statement
+    (33) For_statement -> . FOR Assignment_statement DOWNTO Expression DO Statement
+    (34) Write_statement -> . WRITE LPAREN Param_list RPAREN
+    (35) Write_statement -> . WRITELN LPAREN Param_list RPAREN
+    (39) Readln_statement -> . READLN LPAREN IDENTIFIER RPAREN
+    (40) Readln_statement -> . READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN
+
+    ELSE            reduce using rule 28 (Statement -> .)
+    SEMICOLON       reduce using rule 28 (Statement -> .)
+    END             reduce using rule 28 (Statement -> .)
+    IDENTIFIER      shift and go to state 25
+    BEGIN           shift and go to state 11
+    IF              shift and go to state 26
+    WHILE           shift and go to state 27
+    FOR             shift and go to state 28
+    WRITE           shift and go to state 29
+    WRITELN         shift and go to state 30
+    READLN          shift and go to state 31
+
+    Statement                      shift and go to state 129
+    Assignment_statement           shift and go to state 18
+    Code_block                     shift and go to state 19
+    If_statement                   shift and go to state 20
+    While_statement                shift and go to state 21
+    For_statement                  shift and go to state 22
+    Write_statement                shift and go to state 23
+    Readln_statement               shift and go to state 24
+
+state 122
+
+    (64) Element -> IDENTIFIER LBRACKET Expression RBRACKET .
+
+    TIMES           reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    DIVISION        reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    PLUS            reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    MINUS           reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    DIV             reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    MOD             reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    EQ              reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    NEQ             reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    LT              reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    LTE             reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    GT              reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    GTE             reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    THEN            reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    AND             reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    OR              reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    DO              reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    SEMICOLON       reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    END             reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    TO              reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    DOWNTO          reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    ELSE            reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    RBRACKET        reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    RPAREN          reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    COMMA           reduce using rule 64 (Element -> IDENTIFIER LBRACKET Expression RBRACKET .)
+
+
+state 123
+
+    (32) For_statement -> FOR Assignment_statement TO Expression DO . Statement
+    (21) Statement -> . Assignment_statement
+    (22) Statement -> . Code_block
+    (23) Statement -> . If_statement
+    (24) Statement -> . While_statement
+    (25) Statement -> . For_statement
+    (26) Statement -> . Write_statement
+    (27) Statement -> . Readln_statement
+    (28) Statement -> .
+    (41) Assignment_statement -> . IDENTIFIER ASSIGNMENT Expression
+    (42) Assignment_statement -> . IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression
+    (18) Code_block -> . BEGIN Statements END
+    (29) If_statement -> . IF Expression THEN Statement ELSE Statement
+    (30) If_statement -> . IF Expression THEN Statement
+    (31) While_statement -> . WHILE Expression DO Statement
+    (32) For_statement -> . FOR Assignment_statement TO Expression DO Statement
+    (33) For_statement -> . FOR Assignment_statement DOWNTO Expression DO Statement
+    (34) Write_statement -> . WRITE LPAREN Param_list RPAREN
+    (35) Write_statement -> . WRITELN LPAREN Param_list RPAREN
+    (39) Readln_statement -> . READLN LPAREN IDENTIFIER RPAREN
+    (40) Readln_statement -> . READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN
+
+    ELSE            reduce using rule 28 (Statement -> .)
+    SEMICOLON       reduce using rule 28 (Statement -> .)
+    END             reduce using rule 28 (Statement -> .)
+    IDENTIFIER      shift and go to state 25
+    BEGIN           shift and go to state 11
+    IF              shift and go to state 26
+    WHILE           shift and go to state 27
+    FOR             shift and go to state 28
+    WRITE           shift and go to state 29
+    WRITELN         shift and go to state 30
+    READLN          shift and go to state 31
+
+    Assignment_statement           shift and go to state 18
+    Statement                      shift and go to state 130
+    Code_block                     shift and go to state 19
+    If_statement                   shift and go to state 20
+    While_statement                shift and go to state 21
+    For_statement                  shift and go to state 22
+    Write_statement                shift and go to state 23
+    Readln_statement               shift and go to state 24
+
+state 124
+
+    (33) For_statement -> FOR Assignment_statement DOWNTO Expression DO . Statement
+    (21) Statement -> . Assignment_statement
+    (22) Statement -> . Code_block
+    (23) Statement -> . If_statement
+    (24) Statement -> . While_statement
+    (25) Statement -> . For_statement
+    (26) Statement -> . Write_statement
+    (27) Statement -> . Readln_statement
+    (28) Statement -> .
+    (41) Assignment_statement -> . IDENTIFIER ASSIGNMENT Expression
+    (42) Assignment_statement -> . IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression
+    (18) Code_block -> . BEGIN Statements END
+    (29) If_statement -> . IF Expression THEN Statement ELSE Statement
+    (30) If_statement -> . IF Expression THEN Statement
+    (31) While_statement -> . WHILE Expression DO Statement
+    (32) For_statement -> . FOR Assignment_statement TO Expression DO Statement
+    (33) For_statement -> . FOR Assignment_statement DOWNTO Expression DO Statement
+    (34) Write_statement -> . WRITE LPAREN Param_list RPAREN
+    (35) Write_statement -> . WRITELN LPAREN Param_list RPAREN
+    (39) Readln_statement -> . READLN LPAREN IDENTIFIER RPAREN
+    (40) Readln_statement -> . READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN
+
+    ELSE            reduce using rule 28 (Statement -> .)
+    SEMICOLON       reduce using rule 28 (Statement -> .)
+    END             reduce using rule 28 (Statement -> .)
+    IDENTIFIER      shift and go to state 25
+    BEGIN           shift and go to state 11
+    IF              shift and go to state 26
+    WHILE           shift and go to state 27
+    FOR             shift and go to state 28
+    WRITE           shift and go to state 29
+    WRITELN         shift and go to state 30
+    READLN          shift and go to state 31
+
+    Assignment_statement           shift and go to state 18
+    Statement                      shift and go to state 131
+    Code_block                     shift and go to state 19
+    If_statement                   shift and go to state 20
+    While_statement                shift and go to state 21
+    For_statement                  shift and go to state 22
+    Write_statement                shift and go to state 23
+    Readln_statement               shift and go to state 24
+
+state 125
+
+    (36) Param_list -> Param_list COMMA Param .
+
+    RPAREN          reduce using rule 36 (Param_list -> Param_list COMMA Param .)
+    COMMA           reduce using rule 36 (Param_list -> Param_list COMMA Param .)
+
+
+state 126
+
+    (40) Readln_statement -> READLN LPAREN IDENTIFIER LBRACKET Expression . RBRACKET RPAREN
+    (43) Expression -> Expression . And_or Expression_m
+    (49) And_or -> . AND
+    (50) And_or -> . OR
+
+    RBRACKET        shift and go to state 132
+    AND             shift and go to state 75
+    OR              shift and go to state 76
+
+    And_or                         shift and go to state 74
+
+state 127
+
+    (17) Array_type -> ARRAY LBRACKET integer DOTDOT . integer RBRACKET OF Type
+    (73) integer -> . INTEGER
+
+    INTEGER         shift and go to state 52
+
+    integer                        shift and go to state 133
+
+state 128
+
+    (42) Assignment_statement -> IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression .
+    (43) Expression -> Expression . And_or Expression_m
+    (49) And_or -> . AND
+    (50) And_or -> . OR
+
+    SEMICOLON       reduce using rule 42 (Assignment_statement -> IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression .)
+    END             reduce using rule 42 (Assignment_statement -> IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression .)
+    TO              reduce using rule 42 (Assignment_statement -> IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression .)
+    DOWNTO          reduce using rule 42 (Assignment_statement -> IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression .)
+    ELSE            reduce using rule 42 (Assignment_statement -> IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression .)
+    AND             shift and go to state 75
+    OR              shift and go to state 76
+
+    And_or                         shift and go to state 74
+
+state 129
+
+    (29) If_statement -> IF Expression THEN Statement ELSE Statement .
+
+    SEMICOLON       reduce using rule 29 (If_statement -> IF Expression THEN Statement ELSE Statement .)
+    END             reduce using rule 29 (If_statement -> IF Expression THEN Statement ELSE Statement .)
+    ELSE            reduce using rule 29 (If_statement -> IF Expression THEN Statement ELSE Statement .)
+
+
+state 130
+
+    (32) For_statement -> FOR Assignment_statement TO Expression DO Statement .
+
+    SEMICOLON       reduce using rule 32 (For_statement -> FOR Assignment_statement TO Expression DO Statement .)
+    END             reduce using rule 32 (For_statement -> FOR Assignment_statement TO Expression DO Statement .)
+    ELSE            reduce using rule 32 (For_statement -> FOR Assignment_statement TO Expression DO Statement .)
+
+
+state 131
+
+    (33) For_statement -> FOR Assignment_statement DOWNTO Expression DO Statement .
+
+    SEMICOLON       reduce using rule 33 (For_statement -> FOR Assignment_statement DOWNTO Expression DO Statement .)
+    END             reduce using rule 33 (For_statement -> FOR Assignment_statement DOWNTO Expression DO Statement .)
+    ELSE            reduce using rule 33 (For_statement -> FOR Assignment_statement DOWNTO Expression DO Statement .)
+
+
+state 132
+
+    (40) Readln_statement -> READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET . RPAREN
+
+    RPAREN          shift and go to state 134
+
+
+state 133
+
+    (17) Array_type -> ARRAY LBRACKET integer DOTDOT integer . RBRACKET OF Type
+
+    RBRACKET        shift and go to state 135
+
+
+state 134
+
+    (40) Readln_statement -> READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN .
+
+    SEMICOLON       reduce using rule 40 (Readln_statement -> READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN .)
+    END             reduce using rule 40 (Readln_statement -> READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN .)
+    ELSE            reduce using rule 40 (Readln_statement -> READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN .)
+
+
+state 135
+
+    (17) Array_type -> ARRAY LBRACKET integer DOTDOT integer RBRACKET . OF Type
+
+    OF              shift and go to state 136
+
+
+state 136
+
+    (17) Array_type -> ARRAY LBRACKET integer DOTDOT integer RBRACKET OF . Type
+    (11) Type -> . TINTEGER
+    (12) Type -> . TREAL
+    (13) Type -> . TSTRING
+    (14) Type -> . TCHAR
+    (15) Type -> . TBOOLEAN
+    (16) Type -> . Array_type
+    (17) Array_type -> . ARRAY LBRACKET integer DOTDOT integer RBRACKET OF Type
+
+    TINTEGER        shift and go to state 62
+    TREAL           shift and go to state 63
+    TSTRING         shift and go to state 64
+    TCHAR           shift and go to state 65
+    TBOOLEAN        shift and go to state 66
+    ARRAY           shift and go to state 68
+
+    Type                           shift and go to state 137
+    Array_type                     shift and go to state 67
+
+state 137
+
+    (17) Array_type -> ARRAY LBRACKET integer DOTDOT integer RBRACKET OF Type .
+
+    SEMICOLON       reduce using rule 17 (Array_type -> ARRAY LBRACKET integer DOTDOT integer RBRACKET OF Type .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for ELSE in state 105 resolved as shift

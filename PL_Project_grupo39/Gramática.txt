@@ -1,0 +1,103 @@
+Program : Header SEMICOLON Block DOT
+
+Header  : PROGRAM IDENTIFIER
+
+Block   : Var_declaration_block Code_block
+
+Var_declaration_block : VAR Var_list
+	|
+
+Var_list : Var_declaration Var_list
+	| Var_declaration
+
+Var_declaration : Identifier_list COLON Type SEMICOLON
+
+Identifier_list : IDENTIFIER COMMA Identifier_list
+    | IDENTIFIER
+
+Type : TINTEGER
+    | TREAL
+    | TSTRING
+    | TCHAR
+    | TBOOLEAN
+    | Array_type
+    
+Array_type : ARRAY LBRACKET integer DOTDOT integer RBRACKET OF Type
+
+Code_block : BEGIN Statements END
+
+Statements : Statement SEMICOLON Statements
+	| Statement
+ 
+Statement : Assignment_statement
+	| Code_block
+	| If_statement
+	| While_statement
+	| For_statement
+    | Write_statement
+    | Readln_statement
+	|
+
+If_statement : IF Expression THEN Statement ELSE Statement
+	| IF Expression THEN Statement
+
+While_statement : WHILE Expression DO Statement
+
+For_statement : FOR assignment_statement TO Expression DO Statement
+	| FOR assignment_statement DOWNTO Expression DO Statement
+ 
+Write_statement : WRITE LPAREN Param_list RPAREN 
+    | WRITELN LPAREN Param_list RPAREN 
+
+Param_list : Param_list COMMA Param
+    | Param
+
+Param : Expression
+
+Readln_statement : READLN LPAREN IDENTIFIER RPAREN
+                | READLN LPAREN IDENTIFIER LBRACKET Expression RBRACKET RPAREN
+ 
+Assignment_statement : IDENTIFIER ASSIGNMENT Expression
+                     | IDENTIFIER LBRACKET Expression RBRACKET ASSIGNMENT Expression
+
+Expression : Expression And_or Expression_m
+	| Expression_m
+
+Expression_m : Expression_s
+	| Expression_m Sign Expression_s
+ 
+Expression_s : Element 
+	| Expression_s Psign Element
+
+And_or : AND
+	| OR
+	
+Psign : TIMES
+	| DIVISION
+
+Sign : PLUS
+	| MINUS
+	| DIV
+	| MOD
+	| EQ
+	| NEQ
+	| LT
+	| LTE
+	| GT
+	| GTE
+
+Element : IDENTIFIER
+    | IDENTIFIER LBRACKET Expression RBRACKET
+	| real
+	| integer
+	| string
+	| char
+    | boolean
+	| LPAREN Expression RPAREN
+	| NOT Element
+ 
+real : REAL
+integer : INTEGER
+string : STRING
+char : CHAR
+boolean : BOOLEAN
